@@ -37,6 +37,9 @@ export default function HeroSection() {
               objectFit: 'contain',
               objectPosition: 'center',
               mixBlendMode: 'multiply',
+              filter: 'contrast(1.1) brightness(1.02)',
+              WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)',
+              maskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)',
             }}
           />
           {/* Soft mask fade to white at the bottom */}

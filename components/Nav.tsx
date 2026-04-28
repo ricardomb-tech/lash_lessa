@@ -1,107 +1,85 @@
+'use client'
 import React from 'react'
 
 export default function Nav() {
+  const links = [
+    { label: 'Servicios', href: '#servicios' },
+    { label: 'Filosofía', href: '#filosofia' },
+    { label: 'Portafolio', href: '#portafolio' },
+    { label: 'Blog', href: '#blog' },
+    { label: 'Search', href: '#' }
+  ]
+
   return (
     <nav
-      aria-label="Navegación principal"
       style={{
         position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 100,
-        background: 'rgba(242,242,244,0.72)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderBottom: '0.5px solid rgba(15,16,18,0.08)',
+        top: '3.2rem',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        zIndex: 1000,
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '0 4rem',
-        height: '7rem',
+        gap: '1.2rem',
+        opacity: 0, // GSAP will animate this
       }}
+      className="nav-container"
     >
-      {/* Logo */}
-      <a
-        href="/"
-        id="nav-logo"
-        style={{
-          fontFamily: 'var(--ff-cormorant)',
-          fontSize: '2rem',
-          fontWeight: 400,
-          color: 'var(--c-off-black)',
-          textDecoration: 'none',
-          letterSpacing: '-0.01em',
-        }}
-      >
-        Lash_Lessa
-      </a>
-
-      {/* Centro — links */}
+      {/* ── Circular Logo ── */}
       <div
         style={{
+          width: '4.8rem',
+          height: '4.8rem',
+          borderRadius: '50%',
+          background: 'rgba(242, 242, 244, 0.8)',
+          backdropFilter: 'blur(10px)',
           display: 'flex',
-          gap: '4rem',
           alignItems: 'center',
+          justifyContent: 'center',
+          border: '0.5px solid rgba(15, 16, 18, 0.05)',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease'
         }}
-        className="hidden md:flex"
+        onMouseEnter={(e) => (e.currentTarget.style.background = '#ffffff')}
+        onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(242, 242, 244, 0.8)')}
       >
-        {['Servicios', 'Portafolio', 'Contacto'].map((item) => (
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M12 4v16M4 12h16M7 7l10 10M17 7L7 17" />
+        </svg>
+      </div>
+
+      {/* ── Pill Nav Links ── */}
+      <div
+        style={{
+          background: 'rgba(242, 242, 244, 0.8)',
+          backdropFilter: 'blur(10px)',
+          borderRadius: '1.6rem',
+          padding: '0.8rem 3.2rem',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4.8rem',
+          border: '0.5px solid rgba(15, 16, 18, 0.05)',
+        }}
+      >
+        {links.map((link) => (
           <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            id={`nav-link-${item.toLowerCase()}`}
+            key={link.label}
+            href={link.href}
             style={{
               fontFamily: 'var(--ff-dm)',
-              fontSize: '1.3rem',
+              fontSize: '1.4rem',
               fontWeight: 400,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
-              color: 'var(--c-grey-mid)',
+              color: 'var(--c-off-black)',
               textDecoration: 'none',
-              transition: 'color 0.3s ease',
+              transition: 'opacity 0.3s ease',
             }}
-            onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--c-off-black)')
-            }
-            onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--c-grey-mid)')
-            }
+            onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.5')}
+            onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
           >
-            {item}
+            {link.label}
           </a>
         ))}
       </div>
-
-      {/* Derecha — CTA */}
-      <a
-        href="#booking"
-        id="nav-cta"
-        style={{
-          fontFamily: 'var(--ff-dm)',
-          fontSize: '1.3rem',
-          fontWeight: 400,
-          letterSpacing: '0.05em',
-          color: 'var(--c-off-black)',
-          textDecoration: 'none',
-          border: '0.5px solid var(--c-off-black)',
-          borderRadius: '0.4rem',
-          padding: '0.9rem 2.4rem',
-          transition: 'background 0.3s ease, color 0.3s ease',
-        }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget as HTMLAnchorElement
-          el.style.background = 'var(--c-off-black)'
-          el.style.color = 'var(--c-white)'
-        }}
-        onMouseLeave={(e) => {
-          const el = e.currentTarget as HTMLAnchorElement
-          el.style.background = 'transparent'
-          el.style.color = 'var(--c-off-black)'
-        }}
-      >
-        Agendar
-      </a>
     </nav>
   )
 }
