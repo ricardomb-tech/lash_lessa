@@ -25,12 +25,13 @@ export default function Nav() {
       }}
       className="nav-container"
     >
-      {/* ── Circular Logo ── */}
-      <div
+      {/* ── Circular/Oval Logo ── */}
+      <a
+        href="/"
         style={{
-          width: '4.8rem',
           height: '4.8rem',
-          borderRadius: '50%',
+          padding: '0 2.4rem',
+          borderRadius: '5rem',
           background: 'rgba(242, 242, 244, 0.8)',
           backdropFilter: 'blur(10px)',
           display: 'flex',
@@ -38,15 +39,22 @@ export default function Nav() {
           justifyContent: 'center',
           border: '0.5px solid rgba(15, 16, 18, 0.05)',
           cursor: 'pointer',
+          textDecoration: 'none',
           transition: 'all 0.3s ease'
         }}
         onMouseEnter={(e) => (e.currentTarget.style.background = '#ffffff')}
         onMouseLeave={(e) => (e.currentTarget.style.background = 'rgba(242, 242, 244, 0.8)')}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M12 4v16M4 12h16M7 7l10 10M17 7L7 17" />
-        </svg>
-      </div>
+        <span style={{
+          fontFamily: 'var(--ff-cormorant)',
+          fontSize: '1.6rem',
+          fontWeight: 400,
+          color: 'var(--c-off-black)',
+          letterSpacing: '-0.01em'
+        }}>
+          Lash_Lessa
+        </span>
+      </a>
 
       {/* ── Pill Nav Links ── */}
       <div
