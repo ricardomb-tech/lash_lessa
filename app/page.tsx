@@ -174,16 +174,18 @@ export default function Home() {
   }, [])
 
   return (
-    <main>
-      <Nav onOpenBooking={() => setIsBookingOpen(true)} />
-      <HeroSection onOpenBooking={() => setIsBookingOpen(true)} />
-      <IntroSection />
-      <ServicesSection />
-      <BookingSection onOpenBooking={() => setIsBookingOpen(true)} />
-      <Footer />
+    <>
+      <main>
+        <Nav onOpenBooking={() => setIsBookingOpen(true)} />
+        <HeroSection onOpenBooking={() => setIsBookingOpen(true)} />
+        <IntroSection />
+        <ServicesSection />
+        <BookingSection onOpenBooking={() => setIsBookingOpen(true)} />
+        <Footer />
+      </main>
 
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       <AIAgent />
-    </main>
+    </>
   )
 }

@@ -42,13 +42,16 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     <div 
       style={{
         position: 'fixed',
-        inset: 0,
-        zIndex: 2000,
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        zIndex: 9999,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'rgba(15,16,18,0.4)',
-        backdropFilter: 'blur(10px)',
+        background: 'rgba(15,16,18,0.6)',
+        backdropFilter: 'blur(12px)',
         padding: '2rem'
       }}
       onClick={onClose}

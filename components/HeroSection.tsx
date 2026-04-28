@@ -255,13 +255,15 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
       </div>
 
        {/* ── Floating Badge (Top Center-ish) ── */}
-       <div 
+       <a 
+        href="/experience"
         style={{
           position: 'absolute',
           top: '12rem',
           left: '50%',
           transform: 'translateX(-50%)',
-          zIndex: 10
+          zIndex: 10,
+          textDecoration: 'none'
         }}
         className="hero-float-cta"
        >
@@ -272,8 +274,18 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
             color: 'var(--c-grey-mid)',
             display: 'flex',
             alignItems: 'center',
-            gap: '1rem'
-          }}>
+            gap: '1rem',
+            transition: 'all 0.3s ease'
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.background = 'white'
+            e.currentTarget.style.color = 'var(--c-off-black)'
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.background = 'rgba(242, 242, 244, 0.4)'
+            e.currentTarget.style.color = 'var(--c-grey-mid)'
+          }}
+          >
             Descubre el futuro de tu mirada
             <div style={{ 
               width: '2rem', 
@@ -285,7 +297,7 @@ export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
               justifyContent: 'center'
             }}>→</div>
           </div>
-       </div>
+       </a>
 
     </section>
   )
