@@ -36,6 +36,7 @@ export default function HeroSection() {
             style={{
               objectFit: 'contain',
               objectPosition: 'center',
+              mixBlendMode: 'multiply',
             }}
           />
           {/* Soft mask fade to white at the bottom */}
