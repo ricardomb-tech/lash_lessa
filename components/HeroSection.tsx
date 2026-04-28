@@ -25,6 +25,8 @@ export default function HeroSection() {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
+          pointerEvents: 'none',
+          userSelect: 'none',
         }}
       >
         <div style={{ position: 'relative', width: '100%', height: '100%', maxWidth: '140rem' }}>
@@ -40,6 +42,8 @@ export default function HeroSection() {
               filter: 'contrast(1.1) brightness(1.02)',
               WebkitMaskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)',
               maskImage: 'radial-gradient(circle at center, black 40%, transparent 85%)',
+              pointerEvents: 'none',
+              userSelect: 'none',
             }}
           />
           {/* Soft mask fade to white at the bottom */}
