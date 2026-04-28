@@ -50,8 +50,9 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'rgba(15,16,18,0.6)',
-        backdropFilter: 'blur(12px)',
+        background: 'rgba(15,16,18,0.85)',
+        backdropFilter: 'blur(20px)',
+        WebkitBackdropFilter: 'blur(20px)',
         padding: '2rem'
       }}
       onClick={onClose}

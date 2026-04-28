@@ -13,6 +13,7 @@ import BookingSection from '@/components/BookingSection'
 import Footer from '@/components/Footer'
 import BookingModal from '@/components/BookingModal'
 import AIAgent from '@/components/AIAgent'
+import StickyBooking from '@/components/StickyBooking'
 import { useState } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -181,11 +182,12 @@ export default function Home() {
         <IntroSection />
         <ServicesSection />
         <BookingSection onOpenBooking={() => setIsBookingOpen(true)} />
-        <Footer />
+        <Footer onOpenBooking={() => setIsBookingOpen(true)} />
       </main>
 
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       <AIAgent />
+      <StickyBooking onOpenBooking={() => setIsBookingOpen(true)} />
     </>
   )
 }

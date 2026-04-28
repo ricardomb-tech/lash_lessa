@@ -1,7 +1,14 @@
-import React from 'react'
+interface FooterProps {
+  onOpenBooking: () => void
+}
 
-export default function Footer() {
-  const links = ['Servicios', 'Portafolio', 'Blog', 'Contacto']
+export default function Footer({ onOpenBooking }: FooterProps) {
+  const links = [
+    { label: 'Servicios', href: '#servicios' },
+    { label: 'Filosofía', href: '#filosofia' },
+    { label: 'Portafolio', href: '#portafolio' },
+    { label: 'Reserva', href: '#booking', action: true },
+  ]
   const socials = [
     { label: 'Instagram', href: 'https://instagram.com' },
     { label: 'TikTok', href: 'https://tiktok.com' },
@@ -64,9 +71,15 @@ export default function Footer() {
           </p>
           <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '1.4rem' }}>
             {links.map((link) => (
-              <li key={link}>
+              <li key={link.label}>
                 <a
-                  href={`#${link.toLowerCase()}`}
+                  href={link.href}
+                  onClick={(e) => {
+                    if (link.action) {
+                      e.preventDefault()
+                      onOpenBooking()
+                    }
+                  }}
                   style={{
                     fontSize: '1.4rem',
                     color: 'rgba(242,242,244,0.6)',
@@ -82,7 +95,7 @@ export default function Footer() {
                       'rgba(242,242,244,0.6)')
                   }
                 >
-                  {link}
+                  {link.label}
                 </a>
               </li>
             ))}
