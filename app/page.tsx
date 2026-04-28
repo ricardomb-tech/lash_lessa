@@ -57,6 +57,14 @@ export default function Home() {
         delay: 0.7,
       })
 
+      // Hero Image Reveal
+      gsap.to('.hero-image-container', {
+        opacity: 1,
+        duration: 1.5,
+        ease: 'power2.out',
+        delay: 0.4,
+      })
+
       // Hero elementos secundarios
       gsap.from('.hero-eyebrow', {
         opacity: 0,
