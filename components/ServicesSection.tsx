@@ -158,30 +158,32 @@ export default function ServicesSection() {
             marginBottom: '6.4rem',
           }}
         >
-          <span
-            className="copy-reveal"
-            style={{
-              fontFamily: 'var(--ff-cormorant)',
-              fontSize: '1.4rem',
-              fontWeight: 300,
-              color: 'var(--c-grey-mid)',
-              letterSpacing: '0.1em',
-            }}
-          >
-            0.1
-          </span>
-          <h2
-            className="title-reveal"
-            style={{
-              fontFamily: 'var(--ff-cormorant)',
-              fontSize: 'clamp(3.6rem, 5vw, 5.6rem)',
-              fontWeight: 300,
-              letterSpacing: '-0.02em',
-              color: 'var(--c-off-black)',
-            }}
-          >
-            Nuestros Servicios
-          </h2>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
+            <span
+              className="copy-reveal"
+              style={{
+                fontFamily: 'var(--ff-dm)',
+                fontSize: '1.2rem',
+                letterSpacing: '0.15em',
+                textTransform: 'uppercase',
+                color: 'var(--c-grey-mid)',
+              }}
+            >
+              03 · Especialización
+            </span>
+            <h2
+              className="title-reveal"
+              style={{
+                fontFamily: 'var(--ff-cormorant)',
+                fontSize: 'clamp(3.6rem, 5vw, 5.6rem)',
+                fontWeight: 300,
+                letterSpacing: '-0.02em',
+                color: 'var(--c-off-black)',
+              }}
+            >
+              Nuestros Servicios
+            </h2>
+          </div>
         </div>
 
         {/* Grid */}

@@ -6,8 +6,7 @@ export default function Nav() {
     { label: 'Servicios', href: '#servicios' },
     { label: 'Filosofía', href: '#filosofia' },
     { label: 'Portafolio', href: '#portafolio' },
-    { label: 'Blog', href: '#blog' },
-    { label: 'Search', href: '#' }
+
   ]
 
   return (
@@ -87,6 +86,23 @@ export default function Nav() {
             {link.label}
           </a>
         ))}
+        {/* CTAs */}
+        <div style={{ width: '0.5px', height: '1.6rem', background: 'rgba(15,16,18,0.1)' }} />
+        <a
+          href="#booking"
+          style={{
+            fontFamily: 'var(--ff-dm)',
+            fontSize: '1.4rem',
+            fontWeight: 500,
+            color: 'var(--c-off-black)',
+            textDecoration: 'none',
+            transition: 'opacity 0.3s ease',
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.6')}
+          onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
+        >
+          Reserva
+        </a>
       </div>
     </nav>
   )

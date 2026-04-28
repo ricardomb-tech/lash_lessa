@@ -54,6 +54,21 @@ export default function BookingSection() {
             1.0
           </p>
 
+          {/* Etiqueta */}
+          <p
+            className="copy-reveal"
+            style={{
+              fontFamily: 'var(--ff-dm)',
+              fontSize: '1.2rem',
+              letterSpacing: '0.15em',
+              textTransform: 'uppercase',
+              color: 'rgba(242,242,244,0.4)',
+              marginBottom: '1.6rem',
+            }}
+          >
+            02 · Centro Especializado
+          </p>
+
           <h2
             className="title-reveal"
             style={{
@@ -66,7 +81,8 @@ export default function BookingSection() {
               marginBottom: '2rem',
             }}
           >
-            Reserva tu cita cuando quieras
+            Reserva inteligente <br />
+            disponible 24/7
           </h2>
 
           <p
@@ -81,8 +97,9 @@ export default function BookingSection() {
               maxWidth: '44rem',
             }}
           >
-            Sistema de agendamiento autónomo 24/7. Sin llamadas, sin esperas.
-            Tu tiempo es valioso.
+            Hemos eliminado las barreras entre tú y tu bienestar. Nuestro sistema
+            de agendamiento autónomo te permite gestionar tu cita en segundos,
+            con confirmación inmediata y recordatorios automáticos.
           </p>
 
           {/* CTA */}
