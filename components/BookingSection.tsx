@@ -18,7 +18,11 @@ const steps = [
   },
 ]
 
-export default function BookingSection() {
+interface BookingSectionProps {
+  onOpenBooking: () => void
+}
+
+export default function BookingSection({ onOpenBooking }: BookingSectionProps) {
   return (
     <section
       id="booking"
@@ -104,7 +108,8 @@ export default function BookingSection() {
 
           {/* CTA */}
           <a
-            href="#"
+            href="#booking"
+            onClick={(e) => { e.preventDefault(); onOpenBooking(); }}
             id="booking-cta"
             style={{
               display: 'inline-block',

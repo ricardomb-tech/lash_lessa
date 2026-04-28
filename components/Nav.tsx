@@ -1,7 +1,11 @@
 'use client'
 import React from 'react'
 
-export default function Nav() {
+interface NavProps {
+  onOpenBooking: () => void
+}
+
+export default function Nav({ onOpenBooking }: NavProps) {
   const links = [
     { label: 'Servicios', href: '#servicios' },
     { label: 'Filosofía', href: '#filosofia' },
@@ -90,6 +94,7 @@ export default function Nav() {
         <div style={{ width: '0.5px', height: '1.6rem', background: 'rgba(15,16,18,0.1)' }} />
         <a
           href="#booking"
+          onClick={(e) => { e.preventDefault(); onOpenBooking(); }}
           style={{
             fontFamily: 'var(--ff-dm)',
             fontSize: '1.4rem',

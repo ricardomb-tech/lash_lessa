@@ -2,7 +2,11 @@
 import React from 'react'
 import Image from 'next/image'
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  onOpenBooking: () => void
+}
+
+export default function HeroSection({ onOpenBooking }: HeroSectionProps) {
   return (
     <section
       id="hero"
@@ -200,6 +204,23 @@ export default function HeroSection() {
             >
               Skin Care
             </a>
+            <button
+              onClick={onOpenBooking}
+              style={{
+                background: 'var(--c-off-black)',
+                color: 'white',
+                border: 'none',
+                padding: '0.8rem 2.4rem',
+                borderRadius: '5rem',
+                fontSize: '1.3rem',
+                fontFamily: 'var(--ff-dm)',
+                cursor: 'pointer',
+                marginLeft: '1.2rem',
+                boxShadow: '0 4px 12px rgba(0,0,0,0.1)'
+              }}
+            >
+              Reserva ahora
+            </button>
           </div>
         </div>
       </div>

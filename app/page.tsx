@@ -11,11 +11,15 @@ import IntroSection from '@/components/IntroSection'
 import ServicesSection from '@/components/ServicesSection'
 import BookingSection from '@/components/BookingSection'
 import Footer from '@/components/Footer'
+import BookingModal from '@/components/BookingModal'
+import AIAgent from '@/components/AIAgent'
+import { useState } from 'react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function Home() {
   const ctx = useRef<gsap.Context | null>(null)
+  const [isBookingOpen, setIsBookingOpen] = useState(false)
 
   useEffect(() => {
     // ── 1. Lenis smooth scroll ──────────────────────────────────
@@ -171,12 +175,15 @@ export default function Home() {
 
   return (
     <main>
-      <Nav />
-      <HeroSection />
+      <Nav onOpenBooking={() => setIsBookingOpen(true)} />
+      <HeroSection onOpenBooking={() => setIsBookingOpen(true)} />
       <IntroSection />
       <ServicesSection />
-      <BookingSection />
+      <BookingSection onOpenBooking={() => setIsBookingOpen(true)} />
       <Footer />
+
+      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
+      <AIAgent />
     </main>
   )
 }
