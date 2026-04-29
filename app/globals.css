@@ -60,9 +60,6 @@ html.lenis { height: auto; }
 
 /* Page load — body inicia borroso, GSAP lo revela */
 body {
-  filter: blur(6px);
-  opacity: 0;
-  transition: none;
   background: var(--c-bg);
   color: var(--c-off-black);
   font-family: var(--ff-dm);
@@ -191,14 +188,17 @@ h1, h2, h3, h4 {
   background: rgba(255, 255, 255, 0.55);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 0.5px solid rgba(255, 255, 255, 0.9);
+  border: 0.5px solid rgba(15, 16, 18, 0.05);
   border-radius: 1.6rem;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
-  padding: 4rem 3.6rem;
+  padding: 4.8rem 4rem;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   transition: transform 0.4s var(--ease-inout), box-shadow 0.4s var(--ease-inout), border-color 0.4s var(--ease-inout);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .service-card:hover {
@@ -283,7 +283,7 @@ h1, h2, h3, h4 {
 
 /* Nav opacity start */
 nav {
-  opacity: 0;
+  opacity: 1;
 }
 
 /* Section spacing */
@@ -295,6 +295,14 @@ nav {
   .section-padding {
     padding: 8rem 2.4rem;
   }
+}
+
+/* Portfolio Section */
+.portfolio-item-container:hover .portfolio-img {
+  transform: scale(1.06);
+}
+.portfolio-item-container:hover .portfolio-overlay {
+  opacity: 1 !important;
 }
 
 /* Smooth focus */

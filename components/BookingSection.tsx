@@ -107,9 +107,8 @@ export default function BookingSection({ onOpenBooking }: BookingSectionProps) {
           </p>
 
           {/* CTA */}
-          <a
-            href="#booking"
-            onClick={(e) => { e.preventDefault(); onOpenBooking(); }}
+          <button
+            onClick={onOpenBooking}
             id="booking-cta"
             style={{
               display: 'inline-block',
@@ -124,20 +123,21 @@ export default function BookingSection({ onOpenBooking }: BookingSectionProps) {
               textDecoration: 'none',
               border: '0.5px solid var(--c-white)',
               transition: 'background 0.3s ease, color 0.3s ease, border-color 0.3s ease',
+              cursor: 'pointer'
             }}
             onMouseEnter={(e) => {
-              const el = e.currentTarget as HTMLAnchorElement
+              const el = e.currentTarget
               el.style.background = 'transparent'
               el.style.color = 'var(--c-white)'
             }}
             onMouseLeave={(e) => {
-              const el = e.currentTarget as HTMLAnchorElement
+              const el = e.currentTarget
               el.style.background = 'var(--c-white)'
               el.style.color = 'var(--c-off-black)'
             }}
           >
             Agendar Ahora
-          </a>
+          </button>
         </div>
 
         {/* Columna derecha — Pasos */}

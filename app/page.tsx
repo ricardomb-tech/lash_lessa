@@ -9,6 +9,7 @@ import Nav from '@/components/Nav'
 import HeroSection from '@/components/HeroSection'
 import IntroSection from '@/components/IntroSection'
 import ServicesSection from '@/components/ServicesSection'
+import PortfolioSection from '@/components/PortfolioSection'
 import BookingSection from '@/components/BookingSection'
 import Footer from '@/components/Footer'
 import BookingModal from '@/components/BookingModal'
@@ -37,7 +38,6 @@ export default function Home() {
     ctx.current = gsap.context(() => {
       // Page load — quitar blur del body
       gsap.to('body', {
-        filter: 'blur(0px)',
         opacity: 1,
         duration: 0.9,
         ease: 'power2.out',
@@ -68,6 +68,16 @@ export default function Home() {
         duration: 1.5,
         ease: 'power2.out',
         delay: 0.4,
+      })
+
+      // Hero BG Text Reveal
+      gsap.from(['.hero-bg-text-left', '.hero-bg-text-right'], {
+        opacity: 0,
+        y: 30, 
+        duration: 1.5,
+        stagger: 0.2,
+        ease: 'power2.out',
+        delay: 0.6,
       })
 
       // Hero elementos secundarios
@@ -108,6 +118,17 @@ export default function Home() {
         duration: 0.6,
         ease: 'power2.out',
         delay: 2.0,
+      })
+
+      // Hero BG Text Parallax
+      gsap.to(['.hero-bg-text-left', '.hero-bg-text-right'], {
+        y: 100,
+        scrollTrigger: {
+          trigger: '#hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
+        }
       })
 
       // ── Scroll reveals — .title-reveal ──────────────────────────
@@ -154,6 +175,19 @@ export default function Home() {
         },
       })
 
+      // ── Portfolio items — stagger reveal ───────────────────────
+      gsap.to('.portfolio-item-container', {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '#portafolio',
+          start: 'top 75%',
+        },
+      })
+
       // ── Divider lines — expand desde left ───────────────────────
       gsap.utils.toArray<Element>('.divider-line').forEach((el) => {
         gsap.from(el, {
@@ -176,18 +210,11 @@ export default function Home() {
 
   return (
     <>
-      <main>
-        <Nav onOpenBooking={() => setIsBookingOpen(true)} />
-        <HeroSection onOpenBooking={() => setIsBookingOpen(true)} />
-        <IntroSection />
-        <ServicesSection />
-        <BookingSection onOpenBooking={() => setIsBookingOpen(true)} />
-        <Footer onOpenBooking={() => setIsBookingOpen(true)} />
-      </main>
-
-      <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
-      <AIAgent />
-      <StickyBooking onOpenBooking={() => setIsBookingOpen(true)} />
+      <HeroSection onOpenBooking={() => {}} /> 
+      <IntroSection />
+      <ServicesSection />
+      <PortfolioSection />
+      <BookingSection onOpenBooking={() => {}} />
     </>
   )
 }

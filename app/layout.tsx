@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, DM_Sans } from 'next/font/google'
 import './globals.css'
+import GlobalUI from '@/components/GlobalUI'
 
 const cormorant = Cormorant_Garamond({
   variable: '--ff-cormorant',
@@ -42,7 +43,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${cormorant.variable} ${dmSans.variable}`}>
-      <body>{children}</body>
+      <body>
+        <GlobalUI>
+          {children}
+        </GlobalUI>
+      </body>
     </html>
   )
 }

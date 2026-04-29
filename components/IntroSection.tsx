@@ -1,12 +1,55 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
+import Image from 'next/image'
 
 export default function IntroSection() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const [tilt, setTilt] = useState({ x: 0, y: 0 })
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!containerRef.current) return
+    const { left, top, width, height } = containerRef.current.getBoundingClientRect()
+    const x = (e.clientX - left) / width - 0.5
+    const y = (e.clientY - top) / height - 0.5
+    setTilt({ x: x * 15, y: y * -15 }) // Adjust intensity here
+  }
+
+  const handleMouseLeave = () => {
+    setTilt({ x: 0, y: 0 })
+  }
+
   return (
     <section
       id="filosofia"
       className="section-padding"
-      style={{ background: 'var(--c-bg)' }}
+      style={{ background: 'var(--c-bg)', position: 'relative', overflow: 'hidden' }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      ref={containerRef}
     >
+      {/* ── 3D Floating Eyebrows Illustration ── */}
+      <div
+        className="intro-illustration"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '5%',
+          width: '50rem',
+          height: '30rem',
+          opacity: 0.12, 
+          zIndex: 0,
+          pointerEvents: 'none',
+          transform: `perspective(1000px) rotateX(${tilt.y}deg) rotateY(${tilt.x}deg) scale(1.1)`,
+          transition: 'transform 0.2s ease-out',
+        }}
+      >
+        <Image
+          src="/images/eyebrows_illustration.png"
+          alt="Eyebrows Illustration"
+          fill
+          style={{ objectFit: 'contain' }}
+        />
+      </div>
+
       <div
         style={{
           maxWidth: '120rem',
@@ -15,6 +58,8 @@ export default function IntroSection() {
           gridTemplateColumns: '1fr 2fr',
           gap: '8rem',
           alignItems: 'start',
+          position: 'relative',
+          zIndex: 1, 
         }}
         className="intro-grid"
       >
@@ -22,6 +67,7 @@ export default function IntroSection() {
         <div style={{ position: 'relative' }}>
           {/* Número decorativo */}
           <p
+            className="intro-number-decor"
             aria-hidden="true"
             style={{
               fontFamily: 'var(--ff-cormorant)',
@@ -42,7 +88,7 @@ export default function IntroSection() {
 
           {/* Etiqueta */}
           <p
-            className="copy-reveal"
+            className="copy-reveal intro-label"
             style={{
               fontFamily: 'var(--ff-dm)',
               fontSize: '1.2rem',
@@ -117,6 +163,20 @@ export default function IntroSection() {
           .intro-grid {
             grid-template-columns: 1fr !important;
             gap: 4rem !important;
+          }
+          .intro-number-decor {
+            font-size: 10rem !important;
+            top: -2rem !important;
+          }
+          .intro-label {
+            margin-top: 6rem !important;
+          }
+          .intro-illustration {
+            width: 30rem !important;
+            height: 20rem !important;
+            right: -10% !important;
+            top: 60% !important;
+            opacity: 0.08 !important;
           }
         }
       `}</style>

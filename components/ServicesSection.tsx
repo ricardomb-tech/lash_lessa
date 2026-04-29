@@ -10,90 +10,88 @@ interface ServiceCardProps {
 
 function ServiceCard({ number, title, description, tag, icon }: ServiceCardProps) {
   return (
-    <div className="service-card" role="article">
+    <div 
+      className="service-card" 
+      role="article"
+      style={{
+        textAlign: 'center', // Center text
+        alignItems: 'center', // Center flex items
+      }}
+    >
       {/* Card bottom line (animates on hover via CSS) */}
       <div className="card-line" aria-hidden="true" />
 
-      {/* Icon */}
-      <div style={{ marginBottom: '3.2rem' }}>{icon}</div>
+      {/* Icon - Centered */}
+      <div style={{ height: '5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '2.4rem' }}>
+        {icon}
+      </div>
 
-      {/* Number */}
+      {/* Number - Centered */}
       <p
         style={{
-          fontFamily: 'var(--ff-cormorant)',
-          fontSize: '1.4rem',
-          fontWeight: 300,
+          fontFamily: 'var(--ff-dm)',
+          fontSize: '1.2rem',
+          fontWeight: 400,
           color: 'var(--c-grey-mid)',
-          letterSpacing: '0.1em',
+          letterSpacing: '0.15em',
+          textTransform: 'uppercase',
           marginBottom: '1.2rem',
         }}
       >
         {number}
       </p>
 
-      {/* Title */}
+      {/* Title - Centered */}
       <h3
         style={{
           fontFamily: 'var(--ff-cormorant)',
-          fontSize: '2.8rem',
+          fontSize: '2.6rem',
           fontWeight: 300,
-          letterSpacing: '-0.02em',
-          lineHeight: 1.1,
+          letterSpacing: '-0.01em',
+          lineHeight: 1.2,
           color: 'var(--c-off-black)',
-          marginBottom: '1.6rem',
+          marginBottom: '2rem',
+          minHeight: '6.4rem', 
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center'
         }}
       >
         {title}
       </h3>
 
-      {/* Description */}
+      {/* Description - Centered */}
       <p
         style={{
           fontFamily: 'var(--ff-dm)',
           fontWeight: 300,
           fontSize: '1.5rem',
           lineHeight: 1.7,
-          color: 'var(--c-grey-mid)',
-          marginBottom: '3.2rem',
+          color: '#666666',
+          marginBottom: '4rem',
           flexGrow: 1,
+          maxWidth: '30rem',
+          margin: '0 auto 4rem auto'
         }}
       >
         {description}
       </p>
 
-      {/* Bottom row */}
+      {/* Bottom row - Centered */}
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'center',
+          width: '100%'
         }}
       >
         <span className="tag-pill">{tag}</span>
-        <span
-          style={{
-            fontFamily: 'var(--ff-dm)',
-            fontSize: '1.3rem',
-            color: 'var(--c-grey-mid)',
-            opacity: 0,
-            transform: 'translateX(-8px)',
-            transition: 'opacity 0.3s ease, transform 0.3s ease',
-          }}
-          className="card-see-more"
-        >
-          Ver más →
-        </span>
       </div>
-
-      <style>{`
-        .service-card:hover .card-see-more {
-          opacity: 1 !important;
-          transform: translateX(0) !important;
-        }
-      `}</style>
     </div>
   )
 }
+
 
 /* ── SVG Icons ── */
 const IconSquare = () => (
@@ -149,50 +147,51 @@ export default function ServicesSection() {
       style={{ background: 'var(--c-bg)' }}
     >
       <div style={{ maxWidth: '120rem', margin: '0 auto' }}>
-        {/* Section header */}
+        {/* Section header - Centered for perfect alignment with cards */}
         <div
           style={{
-            display: 'flex',
-            alignItems: 'baseline',
-            gap: '2rem',
-            marginBottom: '6.4rem',
+            marginBottom: '8rem',
+            textAlign: 'center'
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem' }}>
-            <span
-              className="copy-reveal"
-              style={{
-                fontFamily: 'var(--ff-dm)',
-                fontSize: '1.2rem',
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: 'var(--c-grey-mid)',
-              }}
-            >
-              03 · Especialización
-            </span>
-            <h2
-              className="title-reveal"
-              style={{
-                fontFamily: 'var(--ff-cormorant)',
-                fontSize: 'clamp(3.6rem, 5vw, 5.6rem)',
-                fontWeight: 300,
-                letterSpacing: '-0.02em',
-                color: 'var(--c-off-black)',
-              }}
-            >
-              Nuestros Servicios
-            </h2>
-          </div>
+          <span
+            className="copy-reveal"
+            style={{
+              display: 'block',
+              fontFamily: 'var(--ff-dm)',
+              fontSize: '1.2rem',
+              letterSpacing: '0.2em',
+              textTransform: 'uppercase',
+              color: 'var(--c-grey-mid)',
+              marginBottom: '1.6rem'
+            }}
+          >
+            03 · Especialización
+          </span>
+          <h2
+            className="title-reveal"
+            style={{
+              fontFamily: 'var(--ff-cormorant)',
+              fontSize: 'clamp(4rem, 6vw, 6rem)',
+              fontWeight: 300,
+              letterSpacing: '-0.02em',
+              color: 'var(--c-off-black)',
+              margin: '0 auto',
+              maxWidth: '60rem'
+            }}
+          >
+            Nuestros Servicios
+          </h2>
         </div>
 
-        {/* Grid */}
+        {/* Grid - Guaranteed alignment */}
         <div
           className="services-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(3, 1fr)',
-            gap: '2.4rem',
+            gap: '3.2rem',
+            alignItems: 'stretch',
           }}
         >
           {services.map((service) => (
