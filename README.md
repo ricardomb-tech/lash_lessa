@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🕊️ Lash Lessa — Estética Minimalista & Lujo
 
-## Getting Started
+Lash Lessa es una plataforma web de alta gama diseñada para una marca de estética premium, donde "la mirada se convierte en arte". El proyecto destaca por su estética **White Silence**, animaciones fluidas y una experiencia de usuario inmersiva.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📸 Capturas de Pantalla
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🏠 Home Page
+![Home](public/screenshots/home.png)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 🌿 Experiencia & Servicios
+![Experience](public/screenshots/experience.png)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 📅 Sistema de Reserva
+![Booking](public/screenshots/booking.png)
 
-## Learn More
+### 📞 Contacto & Footer
+![Contact](public/screenshots/contact.png)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Características Principales
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Diseño Ultra-Minimalista**: Una paleta de colores limpia (White, Gray, Black) que resalta la elegancia de la marca.
+- **Animaciones Premium**: Integración avanzada con **GSAP** para transiciones suaves y efectos visuales de alta calidad.
+- **Scroll Suave**: Implementación de **Lenis Scroll** para una navegación fluida en toda la página.
+- **Sistema de Reservas**: Flujo interactivo de tres pasos para agendar servicios directamente desde la web.
+- **Totalmente Responsivo**: Experiencia optimizada para dispositivos móviles, tablets y escritorio.
+- **Arquitectura Moderna**: Construido con **Next.js 15** y **Tailwind CSS 4**.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🛠️ Stack Tecnológico
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Frontend**: [Next.js 15](https://nextjs.org/) (App Router)
+- **Lenguaje**: [TypeScript](https://www.typescriptlang.org/)
+- **Estilos**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animaciones**: [GSAP](https://gsap.com/)
+- **Scroll**: [Lenis](https://github.com/darkroomengineering/lenis)
+- **Deployment**: [Vercel](https://vercel.com/)
+
+---
+
+## 🚀 Instalación y Desarrollo
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone https://github.com/tu-usuario/lash_lessa.git
+   cd lash_lessa
+   ```
+
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Ejecutar el servidor de desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+4. **Abrir en el navegador:**
+   Visita [http://localhost:3000](http://localhost:3000) para ver el resultado.
+
+---
+
+## 📁 Estructura del Proyecto
+
+- `app/`: Rutas y páginas principales de la aplicación.
+- `components/`: Componentes UI reutilizables y secciones del sitio.
+- `hooks/`: Hooks personalizados para lógica de React.
+- `public/`: Archivos estáticos, imágenes y capturas de pantalla.
+
+---
+
+Desarrollado con ❤️ para **Lash Lessa**.
+
